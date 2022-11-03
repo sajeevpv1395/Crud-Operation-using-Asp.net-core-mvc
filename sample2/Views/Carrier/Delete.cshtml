@@ -1,0 +1,62 @@
+﻿@model Carrier
+@if(TempData["success"]!=null)
+{
+    <h2>@TempData["success"]</h2>
+}
+ <script src="~/js/Delete.js" ></script>
+
+                   <form method="post" asp-action="Delete">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<input asp-for="Id" hidden />
+			<h2 class="text-primary">Delete Category</h2>
+			<hr />
+		</div>
+	
+        	<div class="mb-3">
+			<label asp-for="FirstName"></label>
+			<input asp-for="FirstName" disabled class="form-control" />
+			<span asp-validation-for="FirstName" class="text-danger"></span>
+		</div>
+
+        	<div class="mb-3">
+			<label asp-for="LastName"></label>
+			<input asp-for="LastName" disabled class="form-control" />
+			<span asp-validation-for="LastName" class="text-danger"></span>
+		</div>
+
+        	<div class="mb-3">
+			<label asp-for="PhoneNumber"></label>
+			<input asp-for="PhoneNumber" disabled class="form-control" />
+			<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+		</div>
+		 
+        	<div class="mb-3">
+			<label asp-for="Email"></label>
+			<input asp-for="Email"disabled class="form-control" />
+			<span asp-validation-for="Email" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Qualification"></label>
+			<input asp-for="Qualification" disabled class="form-control" />
+			<span asp-validation-for="Qualification" class="text-danger"></span>
+		</div>
+		<button  onclick="myFunction()"  type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+		<a asp-controller="Carrier" asp-action="Index" class="btn btn-secondary" style="width:150px">
+			Back to List
+		</a>
+		<div asp-validation-summary="All" class="text-danger" ></div>
+	</div>
+	<script>
+    function myFunction() {
+        alert("I am an alert box!");
+}
+</script>
+</form>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

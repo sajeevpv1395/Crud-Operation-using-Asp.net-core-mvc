@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="~/js/login.js" ></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid red;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: red;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: blueviolet;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: lightyellow;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#Login{
+        display: flex;
+    justify-content: center;
+    color: black;
+    border: aqua;
+    border: 2px solid;
+    border-color: aqua;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="container">
+    <h1 id="Login">Login here</h1>
+  <form >
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Email</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="firstname" placeholder="xyz123@gmail.com..">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Password</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="lname" name="lastname" placeholder="Yoou password..">
+    </div>
+
+  </div>
+
+  
+
+
+
+
+
+ 
+  <br>
+  <div class="row">
+    <input type="submit" value="Submit"id="ButtonSave" >
+  </div>
+  </form>
+</div>
+
+</body>
+</html>

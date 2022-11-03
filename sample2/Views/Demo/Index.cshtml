@@ -1,0 +1,186 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="page-title">
+            <span class="custom-breadcrumb">
+                <a>PBP Extractor</a>
+                <a class="active">Field Management</a>
+            </span>
+        </h3>
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="formlabel requiredfield">Select Customer</label>
+            <select id="customerId" class="form-control login-form-control multiselect">
+                <option value="">Select</option>
+             
+                
+                    <option value="Value">Text</option>
+               
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="formlabel requiredfield">Select Year</label>
+            <select id="yearId" class="form-control login-form-control multiselect">
+                <option value="">Select</option>
+            
+                    <option value="Value">Text</option>
+               
+            </select>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="searcharea">
+            <input type="text" class="form-control searchfields" id="searchfields" placeholder="Search">
+            <img src="~/img/searchicon.png" alt="searchicon">
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="text-right">
+            <button type="button" id="Addfieldbtn" class="btn btn-lg btn-primary mt-1 btn-addUser border-theme mr-1">Add Field</button>
+            <button type="button" id="BulkUploadbtn" class="btn btn-lg btn-primary mt-1 btn-addUser border-theme mr-1" data-toggle="modal" data-target="#uploadfields">Bulk Upload</button>
+            <button type="button" id="downloadfieldlist" class="btn btn-lg btn-primary mt-1 btn-addUser border-theme">Download Template</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="logstableview">
+            <div class="logstableview-body">
+                <table id="fieldstable" class="table" aria-describedby="Field Management">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.no</th>
+                            <th scope="col">Sheet Names</th>
+                            <th scope="col">Table Name</th>
+                            <th scope="col">Field Name</th>
+                            <th scope="col">Modified Date</th>
+                            <th scope="col">Modified By</th>
+                            <th scope="col">Status</th>
+                            <th scope="col" class="notexport"> Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade right" id="addField" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0" id="fieldmodal">
+            <!-- Modal body -->
+            <div class="modal-body p-5 userlistform">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3 class="page-title">Add Field</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name1" class="requiredfield">Sheet Name</label>
+                                    <input id="sheetname" placeholder="Enter Sheet Name" name="sheetname" type="text" maxlength="30" class="form-control mandatory" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="domain" class="requiredfield">Table Name</label>
+                                    <input type="text" placeholder="Enter Table Name" id="tablename" name="tablename" spellcheck="false" maxlength="150" class="internal mandatory form-control restrict_value">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="username1" class="requiredfield">Field Name</label>
+                                    <input type="text" placeholder="Enter Field Name" id="fieldname" name="fieldname" spellcheck="false" maxlength="150" class="internal mandatory form-control restrict_value">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name1" class="control-label requiredfield">Status</label>
+                                    <label class="switch">
+                                        <input type="checkbox" id="IsActive" checked="checked">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label class="error-message error-msg"></label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer p-3">
+                <button type="button" class="btn btn-cancel mr-3 box-shadow-none rounded-100" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btnSave" class="btn btn-theme rounded-100">Save</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade right" id="uploadfields" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0">
+            <!-- Modal body -->
+            <div class="modal-body p-5 userlistform">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3 class="page-title">Upload Field</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="upload-box">
+                                        <input type="file" id="bulkuploadfile" name="input-standing-file-now" class="file_upload">
+                                        <em class="fas fa-cloud-upload-alt"></em>
+                                        <p>Drag and Drop File<br><span>or</span><br><br><a class="uploadFile text-decoration-underline">Click to Upload</a></p>
+                                        <p class="filename d-none"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer p-3">
+                <button type="button" class="btn btn-cancel mr-3 box-shadow-none rounded-100" data-dismiss="modal">Close</button>
+                <button type="button" id="uploadfile" class="btn btn-theme rounded-100 d-none">Save</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/js/Fields.js" ></script>
